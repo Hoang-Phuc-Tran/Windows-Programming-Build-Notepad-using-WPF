@@ -123,7 +123,7 @@ namespace A02_Notepad
                 // The user dont want to save 
                 if(option == MessageBoxResult.No)
                 {
-                    // Create a new window and close the old on
+                    // Clean the textbox
                     textArea.Text = "";
                     this.Title = "*Unititled - Notepad";
                 }
@@ -156,7 +156,7 @@ namespace A02_Notepad
                 // Write the content of file to a specific file
                 System.IO.File.WriteAllText(savefiledialog.FileName, textArea.Text.ToString());
 
-                // Create new window and close the old one
+                // Clean the textbox
                 textArea.Text = "";
                 this.Title = "*Unititled - Notepad";
             }
@@ -206,6 +206,21 @@ namespace A02_Notepad
                         ChangedText = false;
                     }
 
+                    result = openFile.ShowDialog();
+
+                    if (result == true)
+                    {
+                        // Clear the screen
+                        textArea.Text = String.Empty;
+
+                        // Load the content of a specific file
+                        textArea.AppendText(File.ReadAllText(openFile.FileName).ToString());
+
+                        // Change the title of the window
+                        this.Title = System.IO.Path.GetFileNameWithoutExtension(openFile.FileName) + " - Notepad";
+
+                        ChangedText = false;
+                    }
                 }
                 // If the user chooses "No" to open a new file
                 if (option == MessageBoxResult.No)
@@ -403,16 +418,13 @@ namespace A02_Notepad
                     {
                         // Write the content of file to a specific file
                         System.IO.File.WriteAllText(savefiledialog.FileName, textArea.Text.ToString());
-                        
+                        changedText = false;
                     }
                     e.Cancel = true;
                 }
-                // The user want to exit without saving the file
-                if (option == MessageBoxResult.No)
-                {
-                    
-                }
-                if(option == MessageBoxResult.Cancel)
+                
+                // The user want to cancel option
+                if (option == MessageBoxResult.Cancel)
                 {
                     e.Cancel = true;
                 }
