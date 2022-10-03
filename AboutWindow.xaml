@@ -1,0 +1,28 @@
+﻿<Window x:Class="A02_Notepad.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:A02_Notepad"
+        mc:Ignorable="d"
+        Title="About Notepad" Height="400" Width="450" WindowStartupLocation="CenterScreen" Icon="71768.png">
+    <Grid>
+        <StackPanel  Height="350" Width="400" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBox HorizontalAlignment="Center" FontWeight="Bold" FontSize="40"  > Windows 10 </TextBox>
+            <TextBlock FontSize="20" FontWeight="SemiBold"> About </TextBlock>
+            <TextBlock TextWrapping="Wrap" FontSize="16">
+            The Assignment is based on Microsoft’s Notepad. Although not fully implemented in this
+            assignment, the parts are required to implement should behave like they do in Notepad.
+            </TextBlock>
+            <TextBlock FontSize="20" FontWeight="SemiBold"> More Information </TextBlock>
+            <TextBlock TextWrapping="Wrap" FontSize="16">
+            Author: Hoang Phuc Tran<LineBreak/>
+            Date: Setptember 30th, 2022<LineBreak/>
+            Desciption: The application is written in C# by using the .NET Framework <LineBreak/>
+            </TextBlock>
+        </StackPanel>
+        
+        <Button Content="OK" Width="60" Height="25" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" Click="ok_click"/>
+
+    </Grid>
+</Window>
